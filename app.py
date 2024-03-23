@@ -10,7 +10,8 @@ import os
 
 root_dir = os.getcwd()
 video_file = "video.mp4"
-image_file = "2.png"
+image1_file = "2.png"
+image2_file = "new.png"
 
 def main():
 
@@ -31,7 +32,7 @@ def main():
     video_path = os.path.join(root_dir,video_file)
     st.video(video_path,start_time=0)
     
-    image_path = os.path.join(root_dir,image_file)
+    image_path = os.path.join(root_dir,image1_file)
     st.sidebar.image(image_path, caption='')
     
 
@@ -42,8 +43,8 @@ def main():
 )
     slider_value = st.sidebar.slider("How satisfied out of 10 were you with your last Cigna interaction?", 0, 5, 10)
     
-    #image_path = "/Users/jacqu/AliceFinal/AliceFinal/new.png"
-    #st.sidebar.image(image_path, caption='')
+    image_path = os.path.join(root_dir,image2_file)
+    st.sidebar.image(image_path, caption='')
     
 
     api_key = st.secrets["OPENAI_API_KEY"]
