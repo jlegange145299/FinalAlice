@@ -6,6 +6,11 @@ from PIL import Image
 import threading
 import pydub
 from pydub.playback import play
+import os
+
+root_dir = os.getcwd()
+video_file = "video.mp4"
+image_file = "2.png"
 
 def main():
 
@@ -23,10 +28,10 @@ def main():
         layout="wide"
     )
          
-    video_path = "/Users/jacqu/AliceFinal/AliceFinal/video.mp4"
+    video_path = os.path.join(root_dir,video_file)
     st.video(video_path,start_time=0)
     
-    image_path = "/Users/jacqu/AliceFinal/AliceFinal/2.png"
+    image_path = os.path.join(root_dir,image_file)
     st.sidebar.image(image_path, caption='')
     
 
@@ -37,8 +42,8 @@ def main():
 )
     slider_value = st.sidebar.slider("How satisfied out of 10 were you with your last Cigna interaction?", 0, 5, 10)
     
-    image_path = "/Users/jacqu/AliceFinal/AliceFinal/new.png"
-    st.sidebar.image(image_path, caption='')
+    #image_path = "/Users/jacqu/AliceFinal/AliceFinal/new.png"
+    #st.sidebar.image(image_path, caption='')
     
 
     api_key = st.secrets["OPENAI_API_KEY"]
